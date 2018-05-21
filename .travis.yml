@@ -1,25 +1,13 @@
 services:
   - docker
-# Force travis to use its minimal image with default Python settings
-
 language: generic
+
 env:
-  - REPO=a5
-  - REPO=caffe
-  - REPO=ci/hydro*
-  - REPO=ci/indigo*
-  - REPO=ci/jade*
-  - REPO=ci/kinetic*
-  - REPO=ci/lunar*
-  - REPO=ci/melodic*
-  - REPO=core
-  - REPO=core-nvidia
-  - REPO=noether
-  - REPO=noether-webtools
-  - REPO=ros-base-nvidia
-  - REPO=ros-core-nvidia
-  - REPO=ros-robot-nvidia
-  - REPO=viz
-  - REPO=webtools
+  - REPO=ci
+  - REPO={core,caffe/cpu}/kinetic webtools viz noether noether-webtools a5
+  - REPO={core,caffe/cpu}/indigo
+  - REPO={ros-core-nvidia,ros-base-nvidia,ros-robot-nvidia,core-nvidia,caffe/gpu}/kinetic
+  - REPO={ros-core-nvidia,ros-base-nvidia,ros-robot-nvidia,core-nvidia,caffe/gpu}/indigo
+  - REPO={ros-core-nvidia,ros-base-nvidia,ros-robot-nvidia}/lunar
 
 script: ./build.sh $REPO
