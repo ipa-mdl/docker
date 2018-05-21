@@ -22,5 +22,4 @@ env:
   - REPO=viz
   - REPO=webtools
 
-script:
-  - for f in $(find $REPO -name Dockerfile); do d="${f%/Dockerfile}"; "while true; do echo -n "Building $d..."; sleep 1m; done & docker build -q "$d"; klll %1; done
+script: ./build.sh $REPO
