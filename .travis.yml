@@ -4,7 +4,7 @@ language: generic
 
 env:
   - REPO=ci
-  - REPO={core,caffe/cpu}/kinetic webtools viz noether noether-webtools a5
+  - REPO="{core,caffe/cpu}/kinetic webtools viz noether noether-webtools a5" DEFAULT_TAG=kinetic
   - REPO={core,caffe/cpu}/indigo
   - REPO={ros-core-nvidia,ros-base-nvidia,ros-robot-nvidia,core-nvidia,caffe/gpu}/kinetic
   - REPO={ros-core-nvidia,ros-base-nvidia,ros-robot-nvidia,core-nvidia,caffe/gpu}/indigo
