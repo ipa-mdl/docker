@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/bin/bash -e
 
-for f in $(find "$@" -name Dockerfile); do
+for a in "$@"; do
+  for f in $(find "$a" -name Dockerfile); do
     d="${f%/Dockerfile}"
     tag=$(basename "$d")
     if [ "$tag" = "$d" ]; then
@@ -13,5 +14,6 @@ for f in $(find "$@" -name Dockerfile); do
     while sleep 9m; do echo "Still building $t..."; done &
     time docker build -q -t "$t" "$d" || ret=$?
     kill %%
+  done
 done
 exit $ret
