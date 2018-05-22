@@ -12,9 +12,10 @@ for a in "$@"; do
     echo
     echo "Build image $t"
     while sleep 9m; do echo "Still building $t..."; done &
+    b=$!
     time docker build -q -t "$t" "$d" || ret=$?
-    kill %%
-    wait
+    disown
+    kill $b
   done
 done
 exit $ret
