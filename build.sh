@@ -14,6 +14,7 @@ for a in "$@"; do
     while sleep 9m; do echo "Still building $t..."; done &
     time docker build -q -t "$t" "$d" || ret=$?
     kill %%
+    wait
   done
 done
 exit $ret
