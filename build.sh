@@ -19,6 +19,7 @@ for a in "$@"; do
     fi
 
     time docker build -q -t "$t" "$d" || ret=$?
+    [ "$ret" = "" ]
 
     if [ "$TRAVIS" ]; then
       disown
